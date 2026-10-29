@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Aula: Circuito Genius no Tinkercad</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 35px;
+        }
+        h1 {
+            color: #0d47a1;
+            font-size: 26px;
+            border-bottom: 3px solid #1976d2;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #1565c0;
+            font-size: 20px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        p, li {
+            line-height: 1.6;
+            font-size: 15px;
+            color: #424242;
+        }
+        .step-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #1976d2;
+            border-radius: 4px;
+            padding: 18px;
+            margin: 15px 0;
+        }
+        .challenge-box {
+            background-color: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+            border-radius: 4px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+        .challenge-box h3 {
+            margin-top: 0;
+            color: #1b5e20;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f1f3f4;
+            color: #202124;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 12px;
+            color: white;
+        }
+        .badge-amarelo { background-color: #fbc02d; color: #000; }
+        .badge-vermelho { background-color: #e53935; }
+        .badge-verde { background-color: #43a047; }
+        .badge-azul { background-color: #1e88e5; }
+
+        pre {
+            background-color: #263238;
+            color: #eceff1;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .code-title {
+            background: #37474f;
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 6px 6px 0 0;
+            margin-bottom: -15px;
+            display: inline-block;
+        }
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checklist input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎮 Roteiro Prático: Construção do Jogo Genius (Tinkercad)</h1>
+    <p>Aprenda a montar e programar um jogo de memória eletrônico utilizando Arduino, LEDs e Botões.</p>
+
+    <!-- ETAPA 1 -->
+    <h2>1. 🛠️ Etapa 1: Teste dos Primeiros Componentes</h2>
+    <div class="step-box">
+        <p>Na primeira etapa, montamos metade do circuito para validar as conexões do <strong>LED Amarelo</strong> e <strong>LED Vermelho</strong> com seus respectivos botões.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Cor</th>
+                    <th>Componente</th>
+                    <th>Pino Digital (Arduino)</th>
+                    <th>Modo no Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge badge-amarelo">Amarelo</span></td>
+                    <td>LED / Botão</td>
+                    <td>Pino 2 (LED) / Pino 8 (Botão)</td>
+                    <td>OUTPUT / INPUT_PULLUP</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-vermelho">Vermelho</span></td>
+                    <td>LED / Botão</td>
+                    <td>Pino 3 (LED) / Pino 9 (Botão)</td>
+                    <td>OUTPUT / INPUT_PULLUP</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ETAPA 2 - O DESAFIO -->
+    <h2>2. 🚀 Etapa 2: O Desafio de Expansão (4 Cores)</h2>
+    <div class="challenge-box">
+        <h3>🎯 Seu Objetivo:</h3>
+        <p>Agora que os dois primeiros botões estão funcionando, seu desafio é <strong>completar a montagem física no Tinkercad</strong> e <strong>atualizar o código C++</strong> para incluir os componentes <strong>Verde</strong> e <strong>Azul</strong>.</p>
+
+        <h4>📋 Tabela Geral de Mapeamento dos Pinos:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cor</th>
+                    <th>Pino do LED</th>
+                    <th>Pino do Botão</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge badge-amarelo">Amarelo</span></td>
+                    <td>Pino 2</td>
+                    <td>Pino 8</td>
+                    <td>✅ Montado (Etapa 1)</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-vermelho">Vermelho</span></td>
+                    <td>Pino 3</td>
+                    <td>Pino 9</td>
+                    <td>✅ Montado (Etapa 1)</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-verde">Verde</span></td>
+                    <td>Pino 4</td>
+                    <td>Pino 10</td>
+                    <td>✏️ <strong>Sua vez de montar!</strong></td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-azul">Azul</span></td>
+                    <td>Pino 5</td>
+                    <td>Pino 11</td>
+                    <td>✏️ <strong>Sua vez de montar!</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PASSO A PASSO DA PROGRAMAÇÃO -->
+    <h2>3. 💻 Passo a Passo da Programação</h2>
+    <p>Siga os passos abaixo na aba de código do Tinkercad para completar a lógica:</p>
+
+    <ol>
+        <li><strong>Declare os novos pinos:</strong> Crie as variáveis <code>ledVerde</code>, <code>ledAzul</code>, <code>botaoVerde</code> e <code>botaoAzul</code> com os pinos indicados na tabela.</li>
+        <li><strong>Configure no <code>setup()</code>:</strong> Adicione o <code>pinMode()</code> dos novos LEDs como <code>OUTPUT</code> e dos novos botões como <code>INPUT_PULLUP</code>.</li>
+        <li><strong>Adicione o acionamento no <code>loop()</code>:</strong> Escreva os blocos <code>if (digitalRead(...) == LOW)</code> para acionar a função <code>piscarLed()</code> das novas cores.</li>
+    </ol>
+
+    <div class="code-title">Código Modelo para Completar (C++)</div>
+<pre><code>// --- DECLARAÇÃO DOS PINOS ---
+const int ledAmarelo = 2;
+const int ledVermelho = 3;
+// ✏️ COMPLETE AQUI: Declare ledVerde (Pino 4) e ledAzul (Pino 5)
+
+const int botaoAmarelo = 8;
+const int botaoVermelho = 9;
+// ✏️ COMPLETE AQUI: Declare botaoVerde (Pino 10) e botaoAzul (Pino 11)
+
+void setup() {
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  // ✏️ COMPLETE AQUI: Configure os LEDs Verde e Azul como OUTPUT
+
+  pinMode(botaoAmarelo, INPUT_PULLUP);
+  pinMode(botaoVermelho, INPUT_PULLUP);
+  // ✏️ COMPLETE AQUI: Configure os Botões Verde e Azul como INPUT_PULLUP
+}
+
+void piscarLed(int pinoLed) {
+  digitalWrite(pinoLed, HIGH);
+  delay(300);
+  digitalWrite(pinoLed, LOW);
+  delay(100);
+}
+
+void loop() {
+  // Verificação dos botões da Etapa 1
+  if (digitalRead(botaoAmarelo) == LOW) {
+    piscarLed(ledAmarelo);
+  }
+  if (digitalRead(botaoVermelho) == LOW) {
+    piscarLed(ledVermelho);
+  }
+
+  // ✏️ COMPLETE AQUI: Adicione os testes para o botaoVerde e botaoAzul
+}
+</code></pre>
+
+    <!-- CHECKLIST DE TESTE -->
+    <h2>4. ✅ Checklist de Validação Final</h2>
+    <p>Antes de considerar a etapa concluída, teste cada botão na simulação do Tinkercad:</p>
+
+    <ul class="checklist">
+        <li><input type="checkbox"> Pressionar o <strong>Botão Amarelo</strong> pisca o <strong>LED Amarelo</strong>.</li>
+        <li><input type="checkbox"> Pressionar o <strong>Botão Vermelho</strong> pisca o <strong>LED Vermelho</strong>.</li>
+        <li><input type="checkbox"> Pressionar o <strong>Botão Verde</strong> pisca o <strong>LED Verde</strong>.</li>
+        <li><input type="checkbox"> Pressionar o <strong>Botão Azul</strong> pisca o <strong>LED Azul</strong>.</li>
+    </ul>
+
+</div>
+
+</body>
+</html>
